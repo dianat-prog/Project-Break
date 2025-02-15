@@ -18,3 +18,5 @@ En el archivo /config/db.js añadimos el código para la conexión a la base de 
 
 pruebo la conexión a la base de datos y funciona!!!.
 
+## Paso 3 Creación del modelo 
+

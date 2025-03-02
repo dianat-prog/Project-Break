@@ -1,35 +1,47 @@
 const mongoose =require('mongoose');
 
 const productSchema= new mongoose.Schema({
-    nombre:{
+  name:{
         type: String,
         required: [true,'The product name is required.']
         },
-    descripcion: {
+    description: {
         type: String,
         required: true,
       },
-    Imagen: {
-        type: String,
-        required: true,
+    image: {
+      type: String,
+      validate: {
+        validator: function (value) {
+          // Expresión regular para validar URLs (http, https, con o sin www)
+          return /^(https?:\/\/.*\.(?:png|jpg|jpeg|gif|webp|svg))$/.test(value);
+        },
+        message: 'The image must be a valid URL ending in .png, .jpg, .jpeg, .gif, .webp, or .svg.'
+      }
+        
       },
-    Categoría: {
+      category: {
         type: String,
         enum: ['Camisetas', 'Pantalones', 'Zapatos', 'Accesorios'],
         required: true,
       },
-    Talla: {
+      size: {
         type: String,
         enum: ['XS', 'S', 'M', 'L', 'XL'],
-        required: true,
-      },
-    Precio: {type: Number,
+       },
+      price: {type: Number,
         required: true,
         min: [0, 'The price cannot be negative.'],
+        validate: {
+          validator: function (value) {
+            return typeof value === 'number' && !isNaN(value);
+          },
+          message: 'The price must be a valid number.'
+        }
     }
 
 },{ timestamps: true });
 
-const Product =mongoose.model('Product',productSchema);
+const ProductModel =mongoose.model('Product',productSchema);
 
-module.exports={Product};
+module.exports= { ProductModel, productSchema };

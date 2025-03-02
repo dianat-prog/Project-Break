@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav></nav>
+    <div class="container-login">
+        <div class="login-box">
+            <h2>Iniciar Sesión</h2>
+            <form id="loginForm" method="post">
+                <input type="email" name="email" id="email" placeholder="Introduce tu email" required>
+                <input type="password" name="password" id="password" placeholder="Introduce tu contraseña" required>
+                <button class="login-button" type="submit" id="loginButton">Iniciar sesión</button>
+            </form>
+            <p>¿No tienes una cuenta? <a href="/register"><strong>Regístrate</strong></a></p>
+            <div>  <a href="/"><strong>Volver</strong></a></div>
+        </div>
+      
+    </div>
+  
+    <div id="mensajeLogin">
+        <!-- mensaje cuando nos logamos -->
+    </div>
+
+    <!-- ponemos type=module porque en el archivo js que estamos importando hay importaciones -->
+    <script type="module" src="../utils/configLogin.js"></script>
+</body>
+</html>

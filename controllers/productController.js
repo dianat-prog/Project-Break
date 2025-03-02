@@ -351,8 +351,7 @@ async deleteProduct(req,res){
    
     try{
 
-        console.log('Entra en showProductsByCategory ')
-        let isLogged = isAuthenticated(req); 
+         let isLogged = isAuthenticated(req); 
      
 
         const { category } = req.params;
@@ -411,7 +410,7 @@ async deleteProduct(req,res){
             return res.status(404).json({ error: "Product not found" });
         }
 
-        console.log('Valor de log por ID',isLogged)
+      
         const pageContent = `
         ${getNavBar(categories, isLogged)}
         ${getProductCardId(productId,product,isLogged)}
@@ -432,7 +431,7 @@ async deleteProduct(req,res){
 
 
   async showEditProduct (req, res)  {
-    console.log('Entra en showEditProduct ')
+    
     try{
         let isLogged = isAuthenticated(req);
        

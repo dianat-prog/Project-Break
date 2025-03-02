@@ -282,7 +282,7 @@ const productController = {
         const { name, description, image, category, size, price } = req.body;
     
 
-        if (!name || !description || !image || !category || !size || !price) {
+        if (!name || !description || !category || !size || !price) {
             return res.status(400).json({ error: "All fields are required." });
         }
         

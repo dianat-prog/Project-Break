@@ -82,11 +82,6 @@ const checkAuth = (req, res, next) => {
 };
 ```
 
----
-##   Pruebas
-Ejecutar pruebas con Jest:
-
--npm test
 
 
 
